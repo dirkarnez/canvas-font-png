@@ -4,34 +4,34 @@
 <style> 
 @font-face {
   font-family: myFirstFont;
-  src: url('https://www.w3schools.com/cssref/sansation_light.woff');
+  src: url('CamelliaSignatureDEMO!-DEMO!.otf');
 }
-
-
 </style>
 </head>
 <body>
 
 
-<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+<canvas id="myCanvas" width="1000" height="500" style="border:1px solid #d3d3d3;">
 Your browser does not support the HTML canvas tag.</canvas>
 
 <script>
-var canvas = document.getElementById("myCanvas");
-var ctx = canvas.getContext("2d");
-ctx.font         = '30px myFirstFont';
-ctx.fillText("Hello World",10,50);
-canvas.toBlob((blob) => {
- 	 const a = document.createElement("a");
-    a.textContent = "Download";
-    document.body.appendChild(a);
-    a.style.display = "block";
-    a.download = `iconName.png`;
-    a.href = window.URL.createObjectURL(blob);
-URL.revokeObjectURL(url);
+  var canvas = document.getElementById("myCanvas");
+  var ctx = canvas.getContext("2d");
+  ctx.font = '30px myFirstFont';
+  ctx.fillText("I'm not a girl, not yet a woman",10,50);
 
+  const a = document.createElement("a");
+  a.textContent = "Download";
+  a.style.display = "block";
+  a.addEventListener("click", function() {
+    canvas.toBlob((blob) => {
+      const url = window.URL.createObjectURL(blob);
+      a.href = url;
+      a.download = `render.png`;
+    }, "image/png", 1);
+  });
+  document.body.appendChild(a);
 
-}, "image/png", 1);
 </script>
 <h1 style="font-family: myFirstFont">123</h1>
 
