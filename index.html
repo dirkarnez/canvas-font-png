@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+@font-face {
+  font-family: myFirstFont;
+  src: url('https://www.w3schools.com/cssref/sansation_light.woff');
+}
+
+
+</style>
+</head>
+<body>
+
+
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
+Your browser does not support the HTML canvas tag.</canvas>
+
+<script>
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+ctx.font         = '30px myFirstFont';
+ctx.fillText("Hello World",10,50);
+canvas.toBlob((blob) => {
+ 	 const a = document.createElement("a");
+    a.textContent = "Download";
+    document.body.appendChild(a);
+    a.style.display = "block";
+    a.download = `iconName.png`;
+    a.href = window.URL.createObjectURL(blob);
+URL.revokeObjectURL(url);
+
+
+}, "image/png", 1);
+</script>
+<h1 style="font-family: myFirstFont">123</h1>
+
+
+</body>
+</html>
